@@ -20,29 +20,32 @@ let modifyFile3 = (val) => {
 // gunakan variabel file1, file2, dan file3
 const bacaData = require("fs"); // import fs
 
-bacaData.readFile(file1, "utf8", function (err, data) {
+bacaData.readFile(modifyFile1, "utf8", function (err, data) {
   if (err) {
     console.log(err);
   } else {
     console.log(data);
   }
-  JSON.parse(data);
+  const bacaData1 = JSON.parse(data);
+  console.log(bacaData1);
 });
-bacaData.readFile(file2, "utf8", function (err, data) {
+bacaData.readFile(modifyFile2, "utf8", function (err, data) {
   if (err) {
     console.log(err);
   } else {
     console.log(data);
   }
-  JSON.parse(data);
+  const bacaData2 = JSON.parse(data);
+  console.log(bacaData2);
 });
-bacaData.readFile(file3, "utf8", function (err, data) {
+bacaData.readFile(modifyFile3, "utf8", function (err, data) {
   if (err) {
     console.log(err);
   } else {
     console.log(data);
   }
-  JSON.parse(data);
+  const bacaData3 = JSON.parse(data);
+  console.log(bacaData3);
 });
 
 // ! JANGAN DIMODIFIKASI
