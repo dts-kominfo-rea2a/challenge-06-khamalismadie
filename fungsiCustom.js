@@ -20,31 +20,31 @@ let modifyFile3 = (val) => {
 // gunakan variabel file1, file2, dan file3
 const bacaData = require("fs"); // import fs
 
-bacaData.readFile(modifyFile1, "utf8", function (err, data) {
+bacaData.readFile(file1, "utf8", function (err, modifyFile1) {
   if (err) {
     console.log(err);
   } else {
-    console.log(data);
+    console.log(modifyFile1);
   }
-  const bacaData1 = JSON.parse(data);
+  const bacaData1 = JSON.parse(modifyFile1);
   console.log(bacaData1);
 });
-bacaData.readFile(modifyFile2, "utf8", function (err, data) {
+bacaData.readFile(file2, "utf8", function (err, modifyFile2) {
   if (err) {
     console.log(err);
   } else {
-    console.log(data);
+    console.log(modifyFile2);
   }
-  const bacaData2 = JSON.parse(data);
+  const bacaData2 = JSON.parse(modifyFile2);
   console.log(bacaData2);
 });
-bacaData.readFile(modifyFile3, "utf8", function (err, data) {
+bacaData.readFile(file3, "utf8", function (err, modifyFile3) {
   if (err) {
     console.log(err);
   } else {
-    console.log(data);
+    console.log(modifyFile3);
   }
-  const bacaData3 = JSON.parse(data);
+  const bacaData3 = JSON.parse(modifyFile3);
   console.log(bacaData3);
 });
 
