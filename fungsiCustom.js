@@ -18,35 +18,38 @@ let modifyFile3 = (val) => {
 
 // TODO: Kerjakan bacaData
 // gunakan variabel file1, file2, dan file3
-const bacaData = require("fs"); // import fs
+const bacaData = (fnCallback) => {
+  arrData = [];
 
-bacaData.readFile(file1, "utf8", function (err, modifyFile1) {
-  if (err) {
-    console.log(err);
-  } else {
-    console.log(modifyFile1);
-  }
-  const bacaData1 = JSON.parse(modifyFile1);
-  console.log(bacaData1);
-});
-bacaData.readFile(file2, "utf8", function (err, modifyFile2) {
-  if (err) {
-    console.log(err);
-  } else {
-    console.log(modifyFile2);
-  }
-  const bacaData2 = JSON.parse(modifyFile2);
-  console.log(bacaData2);
-});
-bacaData.readFile(file3, "utf8", function (err, modifyFile3) {
-  if (err) {
-    console.log(err);
-  } else {
-    console.log(modifyFile3);
-  }
-  const bacaData3 = JSON.parse(modifyFile3);
-  console.log(bacaData3);
-});
+  fs.readFile(file1, "utf8", function (err, data) {
+    if (err) {
+      return fnCallback(err, null);
+    } else {
+      let dataparse = JSON.parse(data);
+      let hasil = dataparse.message.split(" ");
+      arrData.push(hasil[1]);
+    }
+  });
+  fs.readFile(file2, "utf8", function (err, data) {
+    if (err) {
+      return fnCallback(err, null);
+    } else {
+      let dataparse = JSON.parse(data);
+      let hasil = dataparse.message.split(" ");
+      arrData.push(hasil[1]);
+    }
+  });
+  fs.readFile(file3, "utf8", function (err, data) {
+    if (err) {
+      return fnCallback(err, null);
+    } else {
+      let dataparse = JSON.parse(data);
+      let hasil = dataparse.message.split(" ");
+      arrData.push(hasil[1]);
+    }
+  });
+  return fnCallback(err, arrData);
+};
 
 // ! JANGAN DIMODIFIKASI
 module.exports = {
