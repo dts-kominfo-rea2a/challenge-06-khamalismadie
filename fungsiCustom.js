@@ -19,36 +19,43 @@ let modifyFile3 = (val) => {
 // TODO: Kerjakan bacaData
 // gunakan variabel file1, file2, dan file3
 const bacaData = (fnCallback) => {
-  arrData = [];
-
-  fs.readFile(file1, "utf8", function (err, data) {
-    if (err) {
-      return fnCallback(err, null);
-    } else {
-      let dataparse = JSON.parse(data);
-      let hasil = dataparse.message.split(" ");
-      arrData.push(hasil[1]);
-    }
-  });
-  fs.readFile(file2, "utf8", function (err, data) {
-    if (err) {
-      return fnCallback(err, null);
-    } else {
-      let dataparse = JSON.parse(data);
-      let hasil = dataparse.message.split(" ");
-      arrData.push(hasil[1]);
-    }
-  });
-  fs.readFile(file3, "utf8", function (err, data) {
-    if (err) {
-      return fnCallback(err, null);
-    } else {
-      let dataparse = JSON.parse(data);
-      let hasil = dataparse.message.split(" ");
-      arrData.push(hasil[1]);
-    }
-  });
-  return fnCallback(err, arrData);
+  fs.readFile(
+    file1,
+    "utf8",
+    function (err, data1) {
+      if (err) {
+        return fnCallback(err, null);
+      } else {
+        let dataJson1 = JSON.parse(data1);
+        let jsonFile1 = jsonFile1.message.split(" ");
+        let arrJson1 = dataJson1.filter((isiData) => isiData.length >= 2);
+      }
+    },
+    fs.readFile(
+      file2,
+      "utf8",
+      function (err, data2) {
+        if (err) {
+          return fnCallback(err, null);
+        } else {
+          let dataparse2 = JSON.parse(data2);
+          let jsonFile2 = jsonFile2.message.split(" ");
+          let arrJson2 = dataJson2.filter((isiData) => isiData.length >= 2);
+        }
+      },
+      fs.readFile(file3, "utf8", function (err, data3) {
+        if (err) {
+          return fnCallback(err, null);
+        } else {
+          let dataparse3 = JSON.parse(data3);
+          let jsonFile3 = jsonFile3.message.split(" ");
+          let arrJson3 = dataJson3.filter((isiData) => isiData.length >= 2);
+        }
+        let hasil = [arrJson1[1], arrJson2[1], arrJson3[1]];
+        return fnCallback(err, hasil);
+      })
+    )
+  );
 };
 
 // ! JANGAN DIMODIFIKASI
