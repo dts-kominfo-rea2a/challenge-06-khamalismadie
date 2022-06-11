@@ -32,18 +32,18 @@ const bacaData = (fnCallback) => {
         if (err) {
           fnCallback(err, null);
         }
-        const dataHasil = [];
+        const hasilData = [];
         let data1Json = JSON.parse(data1).message.slice(5);
-        dataHasil.push(data1Json);
+        hasilData.push(data1Json);
         let data2Json = JSON.parse(data2);
-        dataHasil.forEach((element) => {
-          dataHasil.push(element).message.slice(5);
+        data2Json.forEach((element) => {
+          hasilData.push(element).message.slice(5);
         });
         const data3Json = JSON.parse(data3);
-        dataHasil.forEach((element) => {
-          dataHasil.push(element).data.message.slice(5);
+        data3Json.forEach((element) => {
+          hasilData.push(element).data.message.slice(5);
         });
-        fnCallback(null, dataHasil);
+        fnCallback(err, hasilData);
       });
     });
   });
