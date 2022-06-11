@@ -24,7 +24,7 @@ const bacaData = (fnCallback) => {
     "utf8",
     function (err, data1) {
       if (err) {
-        return fnCallback(err, null);
+        return fnCallback(err, data1);
       } else {
         let dataJson1 = JSON.parse(data1);
         let jsonFile1 = jsonFile1.message.split(" ");
@@ -36,7 +36,7 @@ const bacaData = (fnCallback) => {
       "utf8",
       function (err, data2) {
         if (err) {
-          return fnCallback(err, null);
+          return fnCallback(err, data2);
         } else {
           let dataparse2 = JSON.parse(data2);
           let jsonFile2 = jsonFile2.message.split(" ");
@@ -45,7 +45,7 @@ const bacaData = (fnCallback) => {
       },
       fs.readFile(file3, "utf8", function (err, data3) {
         if (err) {
-          return fnCallback(err, null);
+          return fnCallback(err, data3);
         } else {
           let dataparse3 = JSON.parse(data3);
           let jsonFile3 = jsonFile3.message.split(" ");
