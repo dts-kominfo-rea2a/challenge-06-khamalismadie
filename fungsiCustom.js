@@ -37,11 +37,11 @@ const bacaData = (fnCallback) => {
         hasilData.push(data1Json);
         let data2Json = JSON.parse(data2);
         data2Json.forEach((element) => {
-          hasilData.push(element).message.slice(5);
+          hasilData.push(element.message.slice(5));
         });
         const data3Json = JSON.parse(data3);
         data3Json.forEach((element) => {
-          hasilData.push(element).data.message.slice(5);
+          hasilData.push(element.data.message.slice(5));
         });
         fnCallback(err, hasilData);
       });
