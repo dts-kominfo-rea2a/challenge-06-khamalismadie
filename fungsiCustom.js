@@ -1,5 +1,6 @@
 // TODO: import module bila dibutuhkan di sini
 const fs = require("fs");
+
 // ! JANGAN DIMODIFIKASI
 let file1 = "./data1.json";
 let file2 = "./data2.json";
@@ -19,15 +20,15 @@ let modifyFile3 = (val) => {
 // TODO: Kerjakan bacaData
 // gunakan variabel file1, file2, dan file3
 const bacaData = (fnCallback) => {
-  fs.readFile(file1, (err, data1) => {
+  fs.readFile(file1, "utf8", (err, data1) => {
     if (err) {
       fnCallback(err, null);
     }
-    fs.readFile(file2, (err, data2) => {
+    fs.readFile(file2, "utf8", (err, data2) => {
       if (err) {
         fnCallback(err, null);
       }
-      fs.readFile(file3, (err, data3) => {
+      fs.readFile(file3, "utf8", (err, data3) => {
         if (err) {
           fnCallback(err, null);
         }
@@ -35,12 +36,12 @@ const bacaData = (fnCallback) => {
         let data1Json = JSON.parse(data1).message.slice(5);
         dataHasil.push(data1Json);
         let data2Json = JSON.parse(data2);
-        dataHasil.forEach((Element) => {
-          dataHasil.push(Element).message.slice(5);
+        dataHasil.forEach((element) => {
+          dataHasil.push(element).message.slice(5);
         });
         const data3Json = JSON.parse(data3);
-        dataHasil.forEach((Element) => {
-          dataHasil.push(Element).data.message.slice(5);
+        dataHasil.forEach((element) => {
+          dataHasil.push(element).data.message.slice(5);
         });
         fnCallback(null, dataHasil);
       });
