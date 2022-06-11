@@ -19,15 +19,15 @@ let modifyFile3 = (val) => {
 // TODO: Kerjakan bacaData
 // gunakan variabel file1, file2, dan file3
 const bacaData = (fnCallback) => {
-  FileSystem.readFile(file1, (err, data1) => {
+  fs.readFile(file1, (err, data1) => {
     if (err) {
       fnCallback(err, null);
     }
-    FileSystem.readFile(file2, (err, data2) => {
+    fs.readFile(file2, (err, data2) => {
       if (err) {
         fnCallback(err, null);
       }
-      FileSystem.readFile(file3, (err, data3) => {
+      fs.readFile(file3, (err, data3) => {
         if (err) {
           fnCallback(err, null);
         }
